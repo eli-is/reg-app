@@ -6,7 +6,7 @@ pipeline {
     }
 
     stages{
-        stage("Cleanup Workspace"){
+        stage("Cleanup Workspace") {
                 steps {
                 cleanWs()
                 }
@@ -16,6 +16,7 @@ pipeline {
                 steps {
                     git branch: 'main', credentialsId: 'github', url: 'https://github.com/eli-is/reg-app.git'
                 }
+	}
 	stage("Build Application"){
 	        steps {
 		     sh "mvn clean package"
@@ -27,4 +28,7 @@ pipeline {
 	     }
 
 	}
+   }
 }
+	
+
