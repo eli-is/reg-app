@@ -72,7 +72,7 @@ pipeline {
       stage("Trivy Scan") {
 	  steps {
 	       script {
-		     sh ('docker run -v /var/run/ducker.sock:/var/run/docker.sock aquasec/trivy image eli7890/register-app-pipeline:latest --no-progress --scanners vuln --exit-code 0 --sevrity HIGH,CRITICL --format table')  
+		     sh ('docker run -v /var/run/ducker.sock:/var/run/docker.sock aquasec/trivy image eli7890/register-app-pipeline:latest --no-progress --scanners vuln --exit-code 0 --severity HIGH,CRITICL --format table')  
 	       }
 		  
 	  }
