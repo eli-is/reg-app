@@ -68,6 +68,24 @@ pipeline {
 		  }
 	    }
 	}
+
+      stage("Trivy Scan") {
+	  steps {
+	       script {
+		     sh ('docker run -v /var/run/ducker.sock:/var/run/docker.sock aquasec/trivy image eli7890/register-app-pipeline:latest --no-progress --scanners vuln --exit-code 0 --sevrity HIGH,CRITICL --format table')  
+	       }
+		  
+	  }
+      }
+
+      stage ("Cleanup Artifacts") {
+	   steps {
+		script {
+		      sh "docker rmi ${IMAGE_NAME}:${IMAGE_TAG}"
+		      sh "docker rmi ${IMAGE_NAME}:latest"	
+		}
+	   }
+      }
 	    
    }
 }
