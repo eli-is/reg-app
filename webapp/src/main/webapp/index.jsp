@@ -35,5 +35,5 @@
    <br>
    <h1> Happy Learning. See You Again. </h1>
    <br>
-   <h2>hapy lerning DevOps</h2>
+   <h3>hapy lerning DevOps</h3>
 </form>
